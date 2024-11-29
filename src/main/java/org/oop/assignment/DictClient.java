@@ -22,7 +22,8 @@ public class DictClient {
         this.serverPort = serverPort;
     }
 
-    public void callTranslation(String word, String dictionary){
+    public String callTranslation(String word, String dictionary){
+        String result = "";
         try (Socket socket = new Socket(serverHost, serverPort)) {
             socket.setSoTimeout(TIME_OUT);
             OutputStream out = socket.getOutputStream();
@@ -34,7 +35,7 @@ public class DictClient {
                     new InputStreamReader(in, StandardCharsets.UTF_8)
             );
 
-            translate(word, dictionary, writer, reader);
+            result += translate(word, dictionary, writer, reader);
 
             writer.write("quit\r\n");
             writer.flush();
@@ -43,24 +44,28 @@ public class DictClient {
             ioException.printStackTrace();
             System.err.println(ioException.getMessage());
         }
+        return result;
     }
 
-    static void translate(String word, String dictionary,
+    static String translate(String word, String dictionary,
                           Writer writer, BufferedReader reader) throws IOException, UnsupportedEncodingException {
-
         writer.write("DEFINE " + dictionary + " " + word + "\r\n");
         writer.flush();
+        String response = "";
+
+        // TODO: handle exception
 
         for (String line = reader.readLine(); line != null; line = reader.readLine()){
             if(line.startsWith("250 ")) {
-                return;
+                 return response;
             } else if (line.startsWith("552 ")) {
                 System.err.println("No definition found for " + word);
-                return;
+                return response;
             }
             else if (line.matches("\\d\\d\\d .*")) continue;
             else if (line.trim().equals(".")) continue;
-            else System.out.println(line);
+            else response += line + "\r\n";
         }
+        return response;
     }
 }

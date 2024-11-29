@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         DictClient client = new DictClient();
-        String word = "gold";
+        String word = "uranium";
         String dictionary = "fd-eng-lat";
 
         client.callTranslation(word, dictionary);
