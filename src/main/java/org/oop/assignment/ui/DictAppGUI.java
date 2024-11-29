@@ -9,10 +9,14 @@ import java.awt.event.ActionListener;
 
 public class DictAppGUI extends JFrame {
 
-    private JTextArea resultBox = new JTextArea(15, 80);
-    private JTextField wordString = new JTextField(30);
-    private DictClient client;
-    private String dict = "fd-eng-lat";
+    private final JTextArea resultBox = new JTextArea(15, 80);
+    private final JTextField wordString = new JTextField(30);
+    private final DictClient client;
+    private final String dict = "fd-eng-jpn"; // default dictionary
+    // TODO: list of defined dictionaries:
+    //  eng-lat
+    //  eng-gaelic
+    //  eng-japanese
 
     public DictAppGUI(DictClient client) {
         super("OOP Assignment - Dict Protocol Service");
@@ -72,8 +76,7 @@ public class DictAppGUI extends JFrame {
 
     private class Translate extends SwingWorker<String, Object> {
         @Override
-        protected String doInBackground() throws Exception {
-            String word = wordString.getText();
+        protected String doInBackground() {
             return client.callTranslation(wordString.getText(), dict);
         }
 

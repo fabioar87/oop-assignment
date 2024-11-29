@@ -6,6 +6,7 @@ import java.nio.charset.StandardCharsets;
 
 public class DictClient {
     // TODO: define an Enum to map the service connection information
+    // TODO: improve the word string: ex.: 'thank you' is not valid => 'thank\ \you'
     public static final String SERVER_HOST = "dict.org";
     public static final Integer SERVER_PORT = 2628;
     public static final Integer TIME_OUT = 15000;
@@ -48,24 +49,27 @@ public class DictClient {
     }
 
     static String translate(String word, String dictionary,
-                          Writer writer, BufferedReader reader) throws IOException, UnsupportedEncodingException {
+                          Writer writer, BufferedReader reader) throws IOException {
         writer.write("DEFINE " + dictionary + " " + word + "\r\n");
         writer.flush();
-        String response = "";
+        StringBuilder response = new StringBuilder();
 
         // TODO: handle exception
 
         for (String line = reader.readLine(); line != null; line = reader.readLine()){
             if(line.startsWith("250 ")) {
-                 return response;
+                 return response.toString();
             } else if (line.startsWith("552 ")) {
-                System.err.println("No definition found for " + word);
-                return response;
+//                System.err.println("No definition found for " + word);
+//                return response.toString();
+                response.append("No definition found for ");
+                response.append(word);
+                return response.toString();
             }
             else if (line.matches("\\d\\d\\d .*")) continue;
             else if (line.trim().equals(".")) continue;
-            else response += line + "\r\n";
+            else response.append(line).append("\r\n");
         }
-        return response;
+        return response.toString();
     }
 }
