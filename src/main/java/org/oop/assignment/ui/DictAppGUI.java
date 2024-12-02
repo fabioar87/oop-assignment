@@ -1,6 +1,7 @@
 package org.oop.assignment.ui;
 
 import org.oop.assignment.DictClient;
+import org.oop.assignment.DictDB;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +12,8 @@ public class DictAppGUI extends JFrame {
 
     private final JTextArea resultBox = new JTextArea(15, 80);
     private final JTextField wordString = new JTextField(30);
+    private final JComboBox<DictDB> dictList = new JComboBox<>(DictDB.values());
     private final DictClient client;
-    private final String dict = "fd-eng-jpn"; // default dictionary
-    // TODO: list of defined dictionaries:
-    //  eng-lat
-    //  eng-gaelic
-    //  eng-japanese
 
     public DictAppGUI(DictClient client) {
         super("OOP Assignment - Dict Protocol Service");
@@ -37,6 +34,7 @@ public class DictAppGUI extends JFrame {
         northPanelTop.add("North", wordString);
         JButton translateButton = new JButton("Translate");
         northPanelTop.add(translateButton);
+        northPanelTop.add(dictList);
         northPanel.setLayout(new BorderLayout(2,1));
         northPanel.add("North", northPanelTop);
         JPanel northPanelBottom = new JPanel();
@@ -77,7 +75,8 @@ public class DictAppGUI extends JFrame {
     private class Translate extends SwingWorker<String, Object> {
         @Override
         protected String doInBackground() {
-            return client.callTranslation(wordString.getText(), dict);
+            DictDB dict = (DictDB) dictList.getSelectedItem();
+            return client.callTranslation(wordString.getText(), dict.getDbName());
         }
 
         @Override

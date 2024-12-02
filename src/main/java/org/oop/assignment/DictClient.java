@@ -5,8 +5,6 @@ import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
 public class DictClient {
-    // TODO: define an Enum to map the service connection information
-    // TODO: improve the word string: ex.: 'thank you' is not valid => 'thank\ \you'
     public static final String SERVER_HOST = "dict.org";
     public static final Integer SERVER_PORT = 2628;
     public static final Integer TIME_OUT = 15000;
