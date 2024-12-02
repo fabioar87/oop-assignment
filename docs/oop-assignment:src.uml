@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/Users/prometheus/workspace/oop-assignment/src</OriginalElement>
+  <nodes>
+    <node x="-212.5" y="762.0">org.oop.assignment.ui.DictAppGUI.TranslateWords</node>
+    <node x="64.0" y="1110.3962689065554">org.oop.assignment.ui.DictAppGUI</node>
+    <node x="34.25" y="573.9369250985545">org.oop.assignment.ui.DictAppGUI.FrameShower</node>
+    <node x="448.1550591327202" y="345.5">org.oop.assignment.DictDB</node>
+    <node x="388.12847865127117" y="738.0">org.oop.assignment.DictClient</node>
+    <node x="-199.0" y="310.0">org.oop.assignment.ui.DictAppGUI.Translate</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.oop.assignment.ui.DictAppGUI.FrameShower" target="org.oop.assignment.ui.DictAppGUI" relationship="INNER_CLASS">
+      <point x="0.0" y="56.00007490144549" />
+      <point x="127.75" y="744.5" />
+      <point x="158.0" y="744.5" />
+      <point x="158.0" y="898.0" />
+      <point x="177.5" y="898.0" />
+      <point x="16.5" y="-44.00026890655545" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI.TranslateWords" target="org.oop.assignment.ui.DictAppGUI.Translate" relationship="CREATE">
+      <point x="-35.0" y="-44.0" />
+      <point x="-15.0" y="56.0" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI.Translate" target="org.oop.assignment.ui.DictAppGUI" relationship="INNER_CLASS">
+      <point x="0.0" y="56.0" />
+      <point x="-99.0" y="744.5" />
+      <point x="158.0" y="744.5" />
+      <point x="158.0" y="898.0" />
+      <point x="177.5" y="898.0" />
+      <point x="16.5" y="-44.00026890655545" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI" target="org.oop.assignment.ui.DictAppGUI.FrameShower" relationship="CREATE">
+      <point x="31.5" y="-44.0" />
+      <point x="64.75" y="56.0" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI" target="org.oop.assignment.ui.DictAppGUI.TranslateWords" relationship="CREATE">
+      <point x="-97.0" y="0.0" />
+      <point x="-79.0" y="1154.3962689065554" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI" target="org.oop.assignment.DictClient" relationship="CREATE">
+      <point x="97.0" y="0.0" />
+      <point x="579.1284786512712" y="1154.3962689065554" />
+      <point x="0.0" y="68.0" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI.TranslateWords" target="org.oop.assignment.ui.DictAppGUI" relationship="INNER_CLASS">
+      <point x="133.5" y="0.0" />
+      <point x="158.0" y="806.0" />
+      <point x="158.0" y="898.0" />
+      <point x="177.5" y="898.0" />
+      <point x="16.5" y="-44.00026890655545" />
+    </edge>
+    <edge source="org.oop.assignment.ui.DictAppGUI" target="org.oop.assignment.DictClient" relationship="TO_ONE">
+      <point x="97.0" y="15.0" />
+      <point x="594.1284786512712" y="1169.3962689065554" />
+      <point x="15.0" y="68.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8217821782178217" showDependencies="true" x="289.0" y="764.5" />
+  <SelectedNodes>
+    <node>org.oop.assignment.ui.DictAppGUI.TranslateWords</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
