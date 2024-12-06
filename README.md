@@ -13,4 +13,3 @@ DICT protocol project. Components:
 
 ### Project Progress (Logs)
 
-[_17.11.2024, Sunday_] Redis cache project implementation
