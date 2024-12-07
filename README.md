@@ -1,15 +1,6 @@
-# OOP1 Assignment
+# OOP1 Assignment and Problem Domain
 
-OOPS First assignment repository. General notes and planning steps, brainstorms
-DICT protocol project. Components:
-* UI: user can enter the word wanted translation.
-* Client: core application responsible for using the socket to access the dict server.
-
-### Requirements and progress
-* [ ] The scope* needs to be defined.
-
-### The scope:
-1. Use case definition
-
-### Project Progress (Logs)
+The DICT is a dictionary network protocol (OSI layer 7 - Application Layer) that is described by the [RFC 2229](https://www.rfc-editor.org/rfc/rfc2229.html). 
+The protocol defines a collection of commands that a server must be able to recognize, 
+so the client can access the available data and be able to lookup the word definitions based on different languages.
 
